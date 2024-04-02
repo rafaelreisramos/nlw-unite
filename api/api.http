@@ -1,0 +1,20 @@
+POST http://localhost:3333/events
+Content-Type: application/json
+
+{
+  "title": "Unite Summit 7",
+  "details": "Um evento para quem é apaixonado por programação",
+  "maximumAttendees": 1
+}
+###
+POST http://localhost:3333/events/1aed257b-334b-4822-a456-e706923e3a97/attendees
+Content-Type: application/json
+
+{
+  "name": "Jane Doe",
+  "email": "jane.doe@email.com"
+}
+###
+GET http://localhost:3333/events/443f8df0-5652-4c12-bdad-363bdce29457
+###
+GET http://localhost:3333/attendees/5/badge
