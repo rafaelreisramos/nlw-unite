@@ -21,4 +21,4 @@ GET http://localhost:3333/attendees/1/badge
 ###
 GET http://localhost:3333/attendees/1/check-in
 ###
-GET http://localhost:3333/events/a2f8809f-a6b7-4ec4-a5d0-7f0e4558a0fc/attendees?query=John
+GET http://localhost:3333/events/a2f8809f-a6b7-4ec4-a5d0-7f0e4558a0fc/attendees?query=
