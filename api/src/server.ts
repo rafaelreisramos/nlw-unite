@@ -19,13 +19,6 @@ export const app = fastify()
 app.setValidatorCompiler(validatorCompiler)
 app.setSerializerCompiler(serializerCompiler)
 app.setErrorHandler(errorHandler)
-app.register(fastifyCors, { origin: '*' })
-app.register(createEvent)
-app.register(registerForEvent)
-app.register(getEvent)
-app.register(getEventAttendees)
-app.register(getAttendeeBadge)
-app.register(checkIn)
 app.register(fastifySwagger, {
   swagger: {
     consumes: ['application/json'],
@@ -42,6 +35,13 @@ app.register(fastifySwagger, {
 app.register(fastifySwaggerUi, {
   routePrefix: '/docs',
 })
+app.register(fastifyCors, { origin: '*' })
+app.register(createEvent)
+app.register(registerForEvent)
+app.register(getEvent)
+app.register(getEventAttendees)
+app.register(getAttendeeBadge)
+app.register(checkIn)
 app
   .listen({ port: Number(process.env.SERVER_PORT), host: '0.0.0.0' })
   .then(() => console.log('Http server is running!'))
