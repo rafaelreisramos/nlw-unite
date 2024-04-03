@@ -7,6 +7,7 @@
     "dev": "node --env-file=.env --watch -r ts-node/register src/server.ts",
     "build": "tsup src --format esm",
     "start": "node dist/server.mjs",
+    "db:migrate": "prisma migrate dev",
     "db:seed": "ts-node prisma/seed.ts",
     "db:studio": "prisma studio",
     "test": "echo \"Error: no test specified\" && exit 1"
