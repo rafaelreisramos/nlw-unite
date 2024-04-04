@@ -102,7 +102,13 @@ export function AttendeeList() {
                   </div>
                 </TableCell>
                 <TableCell>{dayjs().to(attendee.createdAt)}</TableCell>
-                <TableCell>{dayjs().to(attendee.checkInAt)}</TableCell>
+                <TableCell>
+                  {String(attendee.checkInAt) === 'undefined' ? (
+                    <span className="text-zinc-500">Não fez check-in</span>
+                  ) : (
+                    dayjs().to(attendee.checkInAt)
+                  )}
+                </TableCell>
                 <TableCell>
                   <IconButton transparent>
                     <MoreHorizontal className="size-4" />
