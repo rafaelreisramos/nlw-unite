@@ -14,7 +14,7 @@ import { Table } from './table/table'
 import { TableHeader } from './table/table-header'
 import { TableCell } from './table/table-cell'
 import { ChangeEvent, useState } from 'react'
-import { attendees } from '../data/attendees'
+import { attendees, total } from '../data/attendees'
 
 dayjs.extend(relativeTime)
 dayjs.locale('pt-br')
@@ -23,7 +23,7 @@ const ATTENDEES_PER_PAGE = 10
 export function AttendeeList() {
   const [search, setSearch] = useState('')
   const [page, setPage] = useState(1)
-  const totalPages = Math.ceil(attendees.length / ATTENDEES_PER_PAGE)
+  const totalPages = Math.ceil(total / ATTENDEES_PER_PAGE)
 
   function onSearchInputChange(event: ChangeEvent<HTMLInputElement>) {
     setSearch(event.target.value)
@@ -121,7 +121,9 @@ export function AttendeeList() {
         <tfoot>
           <tr>
             <TableCell className="text-left" colSpan={3}>
-              {`Mostrando 10 de ${attendees.length} itens`}
+              {`Mostrando ${
+                attendees.slice((page - 1) * 10, page * 10).length
+              } de ${total} itens`}
             </TableCell>
             <TableCell className="text-right" colSpan={3}>
               <div className="inline-flex items-center gap-8">
