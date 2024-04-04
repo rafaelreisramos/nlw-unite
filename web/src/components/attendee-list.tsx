@@ -49,12 +49,12 @@ export function AttendeeList() {
     <div className="flex flex-col gap-4">
       <div className="flex items-center gap-3">
         <h1 className="text-2xl font-bold text-gray-400">Participantes</h1>
-        <div className="w-72 flex items-center gap-3 px-3 py-1.5 border border-white/10 rounded-lg">
+        <div className="w-72 flex items-center gap-3 px-3 py-1.5 border border-white/10 rounded-lg focus-within:border-white/50">
           <Search className="size-4 text-emerald-300" />
           <input
             onChange={onSearchInputChange}
             value={search}
-            className="bg-transparent flex-1 text-sm outline-none border-0 p-0 placeholder:text-zinc-500"
+            className="bg-transparent flex-1 text-sm outline-none border-0 p-0 placeholder:text-zinc-500 focus:ring-0"
             placeholder="Buscar participante..."
           />
         </div>
