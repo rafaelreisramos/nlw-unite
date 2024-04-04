@@ -1,7 +1,7 @@
 import { FastifyInstance } from 'fastify'
 import { ZodTypeProvider } from 'fastify-type-provider-zod'
 import { z } from 'zod'
-import { prisma } from '../lib/prima'
+import { prisma } from '../lib/prisma'
 import { BadRequest } from './errors/bad-request'
 
 export async function checkIn(app: FastifyInstance) {

@@ -1,7 +1,7 @@
 import { FastifyInstance } from 'fastify'
 import { z } from 'zod'
 import { ZodTypeProvider } from 'fastify-type-provider-zod'
-import { prisma } from '../lib/prima'
+import { prisma } from '../lib/prisma'
 import { generateSlug } from '../utils/generate-slug'
 import { BadRequest } from './errors/bad-request'
 

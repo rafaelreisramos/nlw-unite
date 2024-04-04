@@ -16,7 +16,9 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
     "@types/node": "^20.12.2",
+    "dayjs": "^1.11.10",
     "prisma": "^5.12.0",
     "ts-node": "^10.9.2",
     "tsup": "^8.0.2",
