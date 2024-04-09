@@ -6,8 +6,8 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = "postgresql://admin:admin@postgres:5432/passin?schema=public"
 }
 
 model Event {
