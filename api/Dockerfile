@@ -22,7 +22,4 @@ COPY --from=build /usr/src/app/prisma ./prisma
 RUN npx prisma generate
 EXPOSE 3333
 
-ENV SERVER_PORT=3333
-ENV DATABASE_URL="file:./dev.db"
-
 CMD ["npm", "start"]
