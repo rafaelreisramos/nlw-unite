@@ -12,6 +12,9 @@ jobs:
   build-and-push:
     name: Build and Push
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./api
     
     steps:
       - name: Checkout
