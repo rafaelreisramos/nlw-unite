@@ -39,4 +39,6 @@ jobs:
       - name: Push image to DockerHub
         run: |
           docker push rafaelreisramos/nlw-unite:${{ steps.generate_sha.outputs.sha }}
-
+          docker tag rafaelreisramos/nlw-unite:${{ steps.generate_sha.outputs.sha }} rafaelreisramos/nlw-unite:latest
+          docker push rafaelreisramos/nlw-unite:latest
+          
