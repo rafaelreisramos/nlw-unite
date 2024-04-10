@@ -14,5 +14,5 @@
     "moduleResolution": "node16"
   },
 
-  "include": ["./src/**/*.ts", "env.ts"]
+  "include": ["./src/**/*.ts", "./env.ts"]
 }
