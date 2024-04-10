@@ -14,6 +14,7 @@ import { getAttendeeBadge } from './routes/get-attendee-badge'
 import { checkIn } from './routes/check-in'
 import { getEventAttendees } from './routes/get-event-attendees'
 import { errorHandler } from './error-handler'
+import { env } from '../env'
 
 export const app = fastify()
 app.setValidatorCompiler(validatorCompiler)
@@ -43,5 +44,5 @@ app.register(getEventAttendees)
 app.register(getAttendeeBadge)
 app.register(checkIn)
 app
-  .listen({ port: Number(process.env.SERVER_PORT), host: '0.0.0.0' })
+  .listen({ port: env.SERVER_PORT, host: '0.0.0.0' })
   .then(() => console.log('Http server is running!'))

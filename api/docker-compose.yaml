@@ -1,0 +1,23 @@
+version: '3.7'
+
+services:
+  postgres:
+    image: postgres:16.2-alpine3.19
+    container_name: passin-db
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=admin
+      - POSTGRES_DB=passin
+    volumes:
+      - db:/var/lib/postgresql/data
+    networks:
+      - passin
+
+volumes:
+  db:
+
+networks:
+  passin:
+    driver: bridge
