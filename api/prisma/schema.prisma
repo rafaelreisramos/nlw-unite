@@ -7,7 +7,7 @@ generator client {
 
 datasource db {
   provider = "postgresql"
-  url      = "postgresql://admin:admin@postgres:5432/passin?schema=public"
+  url      = env("DATABASE_URL")
 }
 
 model Event {
