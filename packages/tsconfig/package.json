@@ -1,0 +1,6 @@
+{
+  "name": "tsconfig",
+  "devDependencies": {
+    "typescript": "^5.4.3"
+  }
+}

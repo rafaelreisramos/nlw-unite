@@ -5,5 +5,8 @@ prisma/seed.ts
 .gitignore
 .vscode
 .git*
+.turbo
+.env*
 api.http
 Dockerfile
+.dockerignore
