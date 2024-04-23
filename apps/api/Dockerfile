@@ -1,9 +1,8 @@
 FROM node:20 AS base
-WORKDIR /usr/src/app
-RUN npm install turbo --global
 
 FROM base AS dependencies
 WORKDIR /usr/src/app
+RUN npm install turbo --global
 COPY . .
 RUN turbo prune pass.in-api --docker
 
@@ -17,7 +16,7 @@ FROM base AS build
 WORKDIR /usr/src/app
 COPY --from=install /usr/src/app/node_modules ./node_modules
 COPY --from=dependencies /usr/src/app/out/full/ .
-COPY turbo.json turbo.json
+COPY --from=dependencies /usr/src/app/turbo.json turbo.json
 RUN npm run build -- --filter=pass.in-api
 RUN npm prune --prod
 
