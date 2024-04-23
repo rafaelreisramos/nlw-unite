@@ -6,7 +6,7 @@ on:
     branches:
       - main
     paths:
-      - api/**
+      - apps/api/**
       - .github/workflows/**
 
 jobs:
@@ -15,7 +15,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./api
+        working-directory: ./apps/api
     
     steps:
       - name: Checkout
