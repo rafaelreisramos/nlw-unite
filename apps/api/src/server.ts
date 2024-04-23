@@ -15,6 +15,7 @@ import { checkIn } from './routes/check-in'
 import { getEventAttendees } from './routes/get-event-attendees'
 import { errorHandler } from './error-handler'
 import { env } from '../env'
+import { getEvents } from './routes/get-events'
 
 export const app = fastify()
 app.setValidatorCompiler(validatorCompiler)
@@ -40,6 +41,7 @@ app.register(fastifyCors, { origin: '*' })
 app.register(createEvent)
 app.register(registerForEvent)
 app.register(getEvent)
+app.register(getEvents)
 app.register(getEventAttendees)
 app.register(getAttendeeBadge)
 app.register(checkIn)
