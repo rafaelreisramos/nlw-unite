@@ -18,7 +18,6 @@ services:
   api-pass-in:
     build:
       context: .
-      dockerfile: ./apps/api/Dockerfile
     container_name: passin-api
     ports:
       - 3001:${SERVER_PORT}
