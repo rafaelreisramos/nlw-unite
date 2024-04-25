@@ -1,5 +1,5 @@
 {
-  "extends": "tsconfig/node.json",
+  "extends": "tsconfig/node20.json",
   "include": ["./src/**/*.ts", "./env.ts"],
   "exclude": ["node_modules"]
 }
