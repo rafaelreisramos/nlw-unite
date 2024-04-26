@@ -4,7 +4,7 @@ FROM base AS dependencies
 WORKDIR /usr/src/app
 RUN npm install turbo --global
 COPY . .
-RUN turbo prune pass.in-api --docker
+RUN turbo prune pass.in-api --docker -vvv
 
 FROM base AS install
 WORKDIR /usr/src/app

@@ -46,5 +46,5 @@ app.register(getEventAttendees)
 app.register(getAttendeeBadge)
 app.register(checkIn)
 app
-  .listen({ port: env.SERVER_PORT, host: '0.0.0.0' })
+  .listen({ port: env.API_PORT, host: '0.0.0.0' })
   .then(() => console.log('Http server is running!'))

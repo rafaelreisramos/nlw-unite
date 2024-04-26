@@ -1,0 +1,10 @@
+node_modules
+.turbo
+dist
+.gitignore
+.git*
+.turbo
+.env*
+.eslint*
+Dockerfile
+.dockerignore

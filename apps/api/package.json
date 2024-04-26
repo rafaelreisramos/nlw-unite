@@ -5,7 +5,7 @@
   "main": "index.js",
   "private": true,
   "scripts": {
-    "dev": "prisma generate && node --env-file=.env --watch -r ts-node/register src/server.ts",
+    "dev": "prisma migrate dev && node --env-file=.env --watch -r ts-node/register src/server.ts",
     "build": "tsup src --format esm",
     "start": "prisma migrate deploy && node dist/server.mjs",
     "db:migrate": "prisma migrate dev",
