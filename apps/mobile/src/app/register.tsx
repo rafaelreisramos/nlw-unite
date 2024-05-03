@@ -5,16 +5,47 @@ import { FontAwesome6, MaterialIcons } from '@expo/vector-icons'
 import { Input } from '@/components/input'
 import { colors } from '@/styles/colors'
 import { Button } from '@/components/button'
+import { api } from '@/lib/api'
+import { AxiosError } from 'axios'
+import { useBadgeStore } from '@/store/badge'
+
+const EVENT_ID = '5f93a0b3-749d-4efd-a2aa-0ccb66e05dde'
 
 export default function Register() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
+  const [isLoading, setIsLoading] = useState(false)
+  const badgeStore = useBadgeStore()
 
-  function handleRegister() {
+  async function handleRegister() {
     if (!name.trim() || !email.trim()) {
       return Alert.alert('Inscrição', 'Preencha todos os campos.')
     }
-    router.push('/ticket')
+    try {
+      setIsLoading(true)
+      const registerResponse = await api.post(`/events/${EVENT_ID}/attendees`, {
+        name: name.trim(),
+        email: email.trim(),
+      })
+      if (registerResponse.data.attendeeId) {
+        const { data } = await api.get(
+          `/attendees/${registerResponse.data.attendeeId}/badge`
+        )
+        badgeStore.save(data.badge)
+        Alert.alert('Inscrição', 'Inscrição realizada com sucesso.', [
+          { text: 'OK', onPress: () => router.push('/ticket') },
+        ])
+      }
+    } catch (error) {
+      console.log(error)
+      setIsLoading(false)
+      if (error instanceof AxiosError) {
+        if (error.response?.data.message.includes('already registered')) {
+          return Alert.alert('Inscrição', 'Este e-mail já está cadastrado.')
+        }
+      }
+      Alert.alert('Inscrição', 'Não foi possível fazer a inscrição.')
+    }
   }
 
   return (
@@ -46,7 +77,11 @@ export default function Register() {
             onChangeText={setEmail}
           />
         </Input>
-        <Button title="Realizar inscrição" onPress={handleRegister} />
+        <Button
+          title="Realizar inscrição"
+          onPress={handleRegister}
+          isLoading={isLoading}
+        />
         <Link
           href="/"
           className="text-gray-100 text-base font-bold text-center mt-8"
