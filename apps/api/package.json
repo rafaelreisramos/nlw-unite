@@ -9,7 +9,7 @@
     "build": "tsup src --format esm",
     "start": "prisma migrate deploy && node dist/server.mjs",
     "db:migrate": "prisma migrate dev",
-    "db:seed": "ts-node prisma/seed.ts",
+    "db:seed": "ts-node prisma/seed-event.ts",
     "db:studio": "prisma studio",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -21,16 +21,17 @@
     "@types/node": "^20.12.2",
     "prisma": "^5.12.0",
     "ts-node": "^10.9.2",
-    "tsup": "^8.0.2",
-    "tsconfig": "*"
+    "tsconfig": "*",
+    "tsup": "^8.0.2"
   },
   "dependencies": {
     "@fastify/cors": "^9.0.1",
     "@fastify/swagger": "^8.14.0",
     "@fastify/swagger-ui": "^3.0.0",
     "@prisma/client": "^5.12.0",
+    "dayjs": "^1.11.11",
     "fastify": "^4.26.2",
     "fastify-type-provider-zod": "^1.1.9",
-    "zod": "^3.22.4"
+    "zod": "^3.23.7"
   }
 }
