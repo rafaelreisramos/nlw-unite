@@ -9,7 +9,7 @@ import { api } from '@/lib/api'
 import { AxiosError } from 'axios'
 import { useBadgeStore } from '@/store/badge'
 
-const EVENT_ID = '5f93a0b3-749d-4efd-a2aa-0ccb66e05dde'
+const EVENT_ID = 'a2f8809f-a6b7-4ec4-a5d0-7f0e4558a0fc'
 
 export default function Register() {
   const [name, setName] = useState('')
